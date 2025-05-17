@@ -14,9 +14,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model users {
   id        Int      @id @default(autoincrement())
   nome      String
   email     String   @unique
-  criadoEm  DateTime @default(now())
+  password     String
+  created_at  DateTime @default(now())
+
+  @@map("users")
 }
